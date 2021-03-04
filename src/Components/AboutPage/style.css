@@ -1,0 +1,18 @@
+.img-wrapper {
+  padding-left: 10px;
+  border: 1px solid gray;
+  width: 850px;
+  height: 250px;
+}
+.label-wrapper {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(3, 200px);
+}
+h3 {
+  padding-top: 50px;
+  text-align: left;
+}
+p {
+  text-align: left;
+}

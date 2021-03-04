@@ -1,0 +1,70 @@
+.modal {
+  font-size: 13px;
+  border: 2px solid rgb(223, 223, 223);
+}
+.modal > .header {
+  width: 670px;
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+.modal > .content {
+  width: 100px;
+  height: 550px;
+  padding: 25px;
+
+  width: 600px;
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(3, 200px);
+  text-align: start;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 5px 7px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  border-radius: 18px;
+  border: 1px solid #555454;
+}
+.Button {
+  color: black;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid rgb(223, 223, 223);
+  border-radius: 3px;
+}
+.Radio {
+  padding: 10px;
+  size: 150px;
+  height: 150px;
+  width: 200px;
+  text-align: center;
+}
+[type="button"]:checked + img {
+  border: 3px solid #8cb9fd;
+}
+
+.size-wrapper {
+  width: 550px;
+  display: grid;
+  grid-gap: 130px;
+  grid-template-columns: repeat(3, 150px);
+}
+
+.grid-padding {
+  padding-bottom: 30px;
+  padding-top: 35px;
+}
