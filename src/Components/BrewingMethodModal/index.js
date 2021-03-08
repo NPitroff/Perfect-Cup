@@ -1,12 +1,16 @@
 import React from "react";
+
 //Components
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import BrewingMethodDetails from "../BrewingMethodDetails/index";
 import AmountCalculator from "../AmountCalculator/index";
 import CupSize from "../CupSize/index";
+import Timer from "../Timer/index";
+
 //Styling
 import "../../style.css"
 import "../../Modal.css"
+
 // Render
 const BrewingMethodModal = ({ brewingMethod, handleToggle, modalState }) => {
     return (
@@ -14,6 +18,7 @@ const BrewingMethodModal = ({ brewingMethod, handleToggle, modalState }) => {
         <ModalHeader toggle={handleToggle}>{brewingMethod.name}</ModalHeader>
         <ModalBody>
           <AmountCalculator brewingMethod={brewingMethod} />
+          <Timer brewingMethod={brewingMethod} />
             {/* <BrewingMethodDetails brewingMethod={brewingMethod} /> */}
             <CupSize />
         </ModalBody>
