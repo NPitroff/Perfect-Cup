@@ -9,6 +9,11 @@ import CupSize from "../CupSize/index";
 import "../../style.css";
 
 const AmountCalculator = ({ brewingMethod }) => {
+    const [amount, setAmount] = useState();
+  const [grams, setGrams] = useState();
+  const [water, setWater] = useState();
+  const [selectedOption, setSelectedOption] = useState(227);
+
   const marks = [
     {
       value: 12,
@@ -27,8 +32,14 @@ const AmountCalculator = ({ brewingMethod }) => {
       label: "15",
     },
   ];
+  const handleChange = () => {
+    setGrams(parseInt(selectedOption / amount));
+    setWater(parseInt(grams * 15));
+  };
 
-  const handleRatio = value => {
+  const handleRatio = (value) => {
+      setAmount(value);
+      handleChange();
     return JSON.stringify(value);
   };
 
@@ -57,11 +68,19 @@ const AmountCalculator = ({ brewingMethod }) => {
       <div>
         <h6 className="text-center">lighter</h6>
       </div>
-    
-    <hr className="mt-2 mb-4" />
-    <CupSize />
-    <hr className="mt-2 mb-4" />
-    <BrewingMethodDetails brewingMethod={brewingMethod} />
+
+      <hr className="mt-2 mb-4" />
+      <CupSize 
+      handleChange={handleChange}
+      selectedOption={selectedOption}
+      setSelectedOption={setSelectedOption}
+      />
+      <hr className="mt-2 mb-4" />
+      <BrewingMethodDetails 
+      brewingMethod={brewingMethod}
+      grams={grams}
+      water={water}
+       />
     </div>
   );
 };

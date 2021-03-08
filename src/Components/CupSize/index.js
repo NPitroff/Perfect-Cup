@@ -4,14 +4,21 @@ import React from "react";
 import "../../style.css";
 import "../../Modal.css";
 
+
+
 //Function
-const CupSize = () => {
+const CupSize = ({ handleChange, selectedOption, setSelectedOption }) => {
+    // Function to store each value from a onClick
+const handleChoice = e => {
+    setSelectedOption(e);
+    handleChange(selectedOption);
+  };
     return (
         <div className="wrapper-details">
             <h5 className="text-center mt-4">Cup Size:</h5>
-            <button className="cup-box">8oz</button>
-            <button className="cup-box">12oz</button>
-            <button className="cup-box">16oz</button>
+            <button className="cup-box" onClick={() => handleChoice(277)}>8oz</button>
+            <button className="cup-box" onClick={() => handleChoice(240)}>12oz</button>
+            <button className="cup-box" onClick={() => handleChoice(454)}>16oz</button>
         </div>
     );
 };
