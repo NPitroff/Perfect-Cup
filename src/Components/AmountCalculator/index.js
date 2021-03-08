@@ -2,11 +2,13 @@ import React from "react";
 
 //Components
 import Slider from "@material-ui/core/Slider";
+import BrewingMethodDetails from "../BrewingMethodDetails/index";
+import CupSize from "../CupSize/index";
 
 //Styling
 import "../../style.css";
 
-const AmountCalculator = () => {
+const AmountCalculator = ({ brewingMethod }) => {
   const marks = [
     {
       value: 12,
@@ -26,7 +28,7 @@ const AmountCalculator = () => {
     },
   ];
 
-  const handleRatio = (value) => {
+  const handleRatio = value => {
     return JSON.stringify(value);
   };
 
@@ -55,6 +57,11 @@ const AmountCalculator = () => {
       <div>
         <h6 className="text-center">lighter</h6>
       </div>
+    
+    <hr className="mt-2 mb-4" />
+    <CupSize />
+    <hr className="mt-2 mb-4" />
+    <BrewingMethodDetails brewingMethod={brewingMethod} />
     </div>
   );
 };
