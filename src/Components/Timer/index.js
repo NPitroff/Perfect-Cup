@@ -1,15 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+
 
 //Styling
 import "../../timer.css";
+import "../../style.css";
 
-const Timer = () => {
+const Timer = ({ brewingMethod }) => {
   // states
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-//   state to store the current time
+  //   state to store the current time
   const [currentTime, setTime] = useState(0);
+  
+  const [isActive, setIsActive] = useState(false);
+
+//   variables to split the time for coffee brew in our data.js file
+    const propSeconds = brewingMethod.total_time.substring(
+        brewingMethod.total_time.indexOf(":") + 1
+    );
+    const propMinutes = brewingMethod.total_time.substring(
+        0,
+        brewingMethod.total_time.indexOf(":")
+    );
+    //function to check whether the timer is done and then reset
+    const checkTime = () => {
+        if (propMinutes === minutes && propSeconds === seconds) {
+            alert("Coffee Is Ready!");
+            setIsActive(!isActive);
+        }
+    };
+
+
+
 // function to reset the timer
   const reset = () => {
     setSeconds(0);
