@@ -12,7 +12,7 @@ const Timer = ({ brewingMethod }) => {
   const [minutes, setMinutes] = useState(0);
   //   state to store the current time
   const [currentTime, setTime] = useState(0);
-  
+
   const [isActive, setIsActive] = useState(false);
 
 //   variables to split the time for coffee brew in our data.js file
@@ -23,26 +23,27 @@ const Timer = ({ brewingMethod }) => {
         0,
         brewingMethod.total_time.indexOf(":")
     );
-    //function to check whether the timer is done and then reset
-    const checkTime = () => {
-        if (propMinutes === minutes && propSeconds === seconds) {
-            alert("Coffee Is Ready!");
-            setIsActive(!isActive);
-        }
-    };
-
-
-
+    
 // function to reset the timer
   const reset = () => {
     setSeconds(0);
     setMinutes(0);
     setIsActive(false);
   };
+
+  //function to check whether the timer is done and then reset
+  const checkTime = () => {
+    if (propMinutes === minutes && propSeconds === seconds) {
+        alert("Coffee Is Ready!");
+        setIsActive(!isActive);
+    }
+};
+
 //   react hook to detect whenever isActive is true, and starts the timer
 useEffect(() => {
     let interval = null;
     if (isActive) {
+        checkTime();
         const startTime = Date.now() - currentTime;
         interval = setInterval(() => {
             setTime(Date.now() - startTime);
