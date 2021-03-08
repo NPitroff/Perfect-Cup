@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App my-5">
       <div className="container">
-        <div className="row">{methodList}</div>
+        {/* <div className="row">{methodList}</div> */}
       </div>
       <NavBar setShowHome={setShowHome} />
       <div className="App my-5">
