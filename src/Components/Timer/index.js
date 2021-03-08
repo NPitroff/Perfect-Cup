@@ -1,30 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //Styling
 import "../../timer.css";
 
 const Timer = () => {
-    // states
-    const [seconds, setSeconds] = useState(0);
+  // states
+  const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [isActive, setIsActive] = useState(false);
+//   state to store the current time
+  const [currentTime, setTime] = useState(0);
+// function to reset the timer
+  const reset = () => {
+    setSeconds(0);
+    setMinutes(0);
+    setIsActive(false);
+  };
+//   react hook to detect whenever isActive is true, and starts the timer
+useEffect(() => {
+    let interval = null;
+    if (isActive) {
+        const startTime = Date.now() - currentTime;
+        interval = setInterval(() => {
+            setTime(Date.now() - startTime);
+            setSeconds(("0" + (Math.floor(currentTime / 1000) % 60)).slice(-2));
+            setMinutes(("0" + (Math.floor(currentTime / 60000) % 60)).slice(-2));
+        }, 1000);
+    } else if (!isActive && seconds !== 0) {
+        clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+}, [isActive, seconds, minutes ]);
 
-    return (
-        <div className="app">
-            <div className="time">
-            {minutes}mins:{seconds}s
-            </div>
-            <div className="row">
-                <button className={`button button-primary button-secondary-${isActive ? "active" : "inactive"
-                }`}
-                onClick={() => setIsActive(!isActive)}
-                >
-                    {isActive ? "Pause" : "Start"}
-                    </button>
-                <button className="button btn-danger">Reset</button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="app">
+      <div className="time">
+        {minutes}mins:{seconds}s
+      </div>
+      <div className="row">
+        <button
+          className={`button button-primary button-secondary-${
+            isActive ? "active" : "inactive"
+          }`}
+          onClick={() => setIsActive(!isActive)}
+        >
+          {isActive ? "Pause" : "Start"}
+        </button>
+        <button className="button btn-danger" onClick={reset}>Reset</button>
+      </div>
+    </div>
+  );
 };
 
 export default Timer;
