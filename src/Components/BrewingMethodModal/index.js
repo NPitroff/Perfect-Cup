@@ -2,6 +2,7 @@ import React from "react";
 //Components
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import BrewingMethodDetails from "../BrewingMethodDetails/index";
+import CupSize from "../CupSize/index";
 //Styling
 import "../../style.css"
 import "../../Modal.css"
@@ -12,6 +13,7 @@ const BrewingMethodModal = ({ brewingMethod, handleToggle, modalState }) => {
         <ModalHeader toggle={handleToggle}>{brewingMethod.name}</ModalHeader>
         <ModalBody>
             <BrewingMethodDetails brewingMethod={brewingMethod} />
+            <CupSize />
         </ModalBody>
         <ModalFooter>
           <button className="button button-dark" onClick={handleToggle}>
