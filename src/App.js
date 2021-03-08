@@ -1,26 +1,27 @@
 import React, { useState } from "react";
-import "./App.css";
-{showHome ? (<BrewingList brewingMethods={brewingMethods} />) : (<AboutPage />)}
 
+//Style
+import "./App.css";
+
+//Data
 import allBrewMethods from "./data";
 
-function App() {
-  const [brewingMethods] = useState(allBrewMethods);
+//Components
+import AboutPage from "./Components/AboutPage";
+import NavBar from "./Components/NavBar";
 
-  const methodList = brewingMethods.map(method => (
-    
-    <div className="col-4">
-      <h3>{method.name}</h3>
-      <img src={method.imageUrl} alt={method.name} className="mx-auto" />
-    </div>
-  ));
+function App() {
+  const [showHome, setShowHome] = useState(true);
 
   return (
-    <div className="App my-5">
-      <div className="container">
-        <div className="row">{methodList}</div>
+    <>
+      <NavBar setShowHome={setShowHome} />
+      <div className="App my-5">
+        <div className="container">{showHome ? null : <AboutPage />}</div>
+        {/* START BY SETTING UP THE MBD class divisions */}
+
       </div>
-    </div>
+    </>
   );
 }
 
