@@ -10,6 +10,7 @@ const Instructions = ({ brewingMethod }) => {
     const instructionList = instructions.map(inst => {
         if (count === 0) {
             count += 1;
+            // REVIEW AND FIX THE INSTRUCTIONS LIST SO IT IS NOT RAN TOGETHER
 
             return (
                 <div className="carousel-item active">
