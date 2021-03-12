@@ -19,10 +19,12 @@ const BrewingMethodModal = ({ brewingMethod, handleToggle, modalState }) => {
         <ModalHeader toggle={handleToggle}>{brewingMethod.name}</ModalHeader>
         <ModalBody>
           <AmountCalculator brewingMethod={brewingMethod} />
+          <div className="wrapper-details-inst">
           <Timer brewingMethod={brewingMethod} />
             {/* <BrewingMethodDetails brewingMethod={brewingMethod} /> */}
             <Instructions brewingMethod={brewingMethod} />
-            <CupSize />
+            </div>
+            {/* <CupSize /> */}
         </ModalBody>
         <ModalFooter>
           <button className="button button-dark" onClick={handleToggle}>
