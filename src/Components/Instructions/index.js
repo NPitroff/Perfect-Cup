@@ -7,12 +7,12 @@ const Instructions = ({ brewingMethod }) => {
   const instructions = brewingMethod.instructions;
   let count = 0;
 
-  const instructionList = instructions.map(inst => {
+  const instructionList = instructions.map((inst) => {
     if (count === 0) {
       count += 1;
 
       return (
-        <div className="carousel-item active">
+        <div className="carousel-item active" key={count}>
           Step: {count} <br />
           <br />
           {instructions[0]}
@@ -21,7 +21,7 @@ const Instructions = ({ brewingMethod }) => {
     } else {
       count += 1;
       return (
-        <div className="carousel-item">
+        <div className="carousel-item" key={count}>
           Step: {count} <br />
           <br />
           {inst}
@@ -31,6 +31,7 @@ const Instructions = ({ brewingMethod }) => {
   });
   return (
     <div
+      key={count}
       id="carouselControls"
       className="carousel slide"
       data-ride="carousel"
@@ -38,7 +39,7 @@ const Instructions = ({ brewingMethod }) => {
     >
       <div className="carousel-inner">
         <div className="card-body">
-          <p className="card-text">{instructionList}</p>
+          <div className="card-text" id="paragraph text">{instructionList}</div>
         </div>
       </div>
 
@@ -50,10 +51,9 @@ const Instructions = ({ brewingMethod }) => {
         style={{
           height: "165px",
           width: "15px",
-          color: "black"
+          color: "black",
         }}
       >
-        
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="sr-only">Next</span>
       </button>
