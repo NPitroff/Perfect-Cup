@@ -10,7 +10,7 @@ const BrewingList = ({ brewingMethods }) => {
   const methodList = brewingMethods.map(method => (
     <div className="col-4">
       <BrewMethodItem brewingMethod={method} />
-      <img src={method.imageUrl} alt={method.name} className="mx-auto" />
+      {/* <img src={method.imageUrl} alt={method.name} className="mx-auto" /> */}
     </div>
   ));
 
