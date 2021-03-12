@@ -8,7 +8,7 @@ import "../../style.css";
 
 const BrewingList = ({ brewingMethods }) => {
   const methodList = brewingMethods.map(method => (
-    <div className="col-4" >
+    <div className="col-4" key={method.name}>
       <BrewMethodItem brewingMethod={method} />
       
       {/* <img src={method.imageUrl} alt={method.name} className="mx-auto" /> */}
