@@ -16,7 +16,7 @@ function App() {
   const [showHome, setShowHome] = useState(true);
   // Display the brewing methods for the coffee
   const methodList = brewingMethods.map((method) => (
-    <div className="col-4">
+    <div className="col-4" key={method.name}>
       <h3>{method.name}</h3>
       <img src={method.imageUrl} alt={method.name} className="mx-auto" />
     </div>

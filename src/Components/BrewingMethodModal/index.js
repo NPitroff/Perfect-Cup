@@ -4,7 +4,7 @@ import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import BrewingMethodDetails from "../BrewingMethodDetails/index";
 import AmountCalculator from "../AmountCalculator/index";
-import CupSize from "../CupSize/index";
+// import CupSize from "../CupSize/index";
 import Timer from "../Timer/index";
 import Instructions from "../Instructions/index";
 
