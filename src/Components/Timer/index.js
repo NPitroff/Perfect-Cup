@@ -7,6 +7,8 @@ import "../../timer.css";
 import "../../style.css";
 
 const Timer = ({ brewingMethod }) => {
+  //function to create a sound when the timer ends
+  
   // states
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
