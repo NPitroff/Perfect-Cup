@@ -10,6 +10,15 @@ import "../../style.css";
 
 const Timer = ({ brewingMethod }) => {
   //function to create a sound when the timer ends
+  var sound = new Howl({
+    src: ['https://assets.coderrocketfuel.com/pomodoro-times-up.mp3'],
+    volume:1.0,
+    onend: function(){
+      console.log("COFFEE IS READY!")
+    }
+  });
+
+
 
   // states
   const [seconds, setSeconds] = useState(0);
@@ -38,6 +47,7 @@ const Timer = ({ brewingMethod }) => {
   //function to check whether the timer is done and then reset
   const checkTime = () => {
     if (propMinutes === minutes && propSeconds === seconds) {
+        sound.play();
         alert("Coffee Is Ready!");
         setIsActive(!isActive);
     }
